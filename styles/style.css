@@ -10,7 +10,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "wght" var(--main-font-weight), "wdth" 100, "opsz" 0;
+  font-variation-settings: 'wght' var(--main-font-weight), 'wdth' 100, 'opsz' 0;
 }
 
 .content-section {
@@ -62,8 +62,8 @@
   border-bottom: var(--border-width) solid var(--accent-clr);
   padding: 5px 10px 5px;
   font-size: 18px;
-  font-variation-settings: "wght" var(--main-font-bold-weight), "wdth" 100,
-    "opsz" 0;
+  font-variation-settings: 'wght' var(--main-font-bold-weight), 'wdth' 100,
+    'opsz' 0;
 }
 
 .card__image-container {
@@ -118,7 +118,7 @@
 .card__text {
   font-size: 18px;
   line-height: 21px;
-  font-variation-settings: "wght" var(--main-font-weight), "wdth" 100, "opsz" 0;
+  font-variation-settings: 'wght' var(--main-font-weight), 'wdth' 100, 'opsz' 0;
 }
 
 .card__buttons {
@@ -249,7 +249,7 @@
 }
 
 .standard-button::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
