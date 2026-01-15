@@ -22,8 +22,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 98px;
-  outline: 2px solid var(--accent-clr);
+  margin: 0 auto 97px;
+  border: 2px solid var(--accent-clr);
   font-family: var(--accent-font), sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -31,11 +31,10 @@
   background-color: var(--background-clr);
   transition: background-color var(--transform-time);
   transition-timing-function: var(--transition-function);
-  height: clamp(327px, calc(327px + (41 * ((100vw - 375px) / 1065))), 368px);
 }
 
 .header__title {
-  margin: clamp(7rem, 6.3318rem + 4.9844vw, 8.11rem) 0 0;
+  margin: clamp(7rem, 6.3318rem + 4.9844vw, 8rem) 0 130px;
   font-weight: inherit;
   font-size: clamp(0.875rem, 0.2179rem + 2.8037vw, 1.4375rem);
   text-align: center;
@@ -46,72 +45,6 @@
   margin: 0 0 20px;
   font-weight: inherit;
   font-size: clamp(3.0625rem, 1.8943rem + 4.9844vw, 4.0625rem);
-}
-
-.theme-menu__list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin: 0 0 25px 18px;
-  text-align: left;
-}
-
-.theme-menu__button {
-  position: relative;
-  border: none;
-  padding: 0;
-  text-transform: uppercase;
-  background-color: transparent;
-  transition: color var(--transform-time);
-  transition-timing-function: var(--transition-function);
-  cursor: pointer;
-}
-
-.theme-menu__button:hover {
-  color: var(--accent-clr-transparent);
-}
-
-.theme-menu__button::after {
-  content: "";
-  position: absolute;
-  display: block;
-  background-color: var(--accent-clr-transparent);
-  transition: transform var(--transform-time), color var(--transform-time);
-  transition-timing-function: var(--transition-function);
-  transform: scaleX(0);
-  transform-origin: left;
-  block-size: 3px;
-  inline-size: 100%;
-  inset-block-end: -3px;
-  inset-inline-start: 0;
-}
-
-.theme-menu__button:focus {
-  outline: none;
-}
-
-.theme-menu__button:focus-visible {
-  color: var(--accent-clr-transparent);
-}
-
-.theme-menu__button:focus-visible::after {
-  transform: scaleX(1);
-}
-
-.theme-menu__button:disabled {
-  position: relative;
-  color: var(--accent-clr-transparent);
-  transition: color var(--transform-time);
-  transition-timing-function: var(--transition-function);
-  pointer-events: none;
-}
-
-.theme-menu__button:disabled::before {
-  content: "▶";
-  position: absolute;
-  color: var(--theme-light-accent-transparent);
-  animation: moving 0.5s infinite ease-in-out reverse;
-  inset-inline-start: -20px;
 }
 
 .cards {
@@ -141,7 +74,7 @@
 .card__image-text {
   position: absolute;
   z-index: 2;
-  opacity: 0.6;
+  opacity: 0.5;
   color: var(--accent-clr);
   font-family: var(--accent-font), sans-serif;
   font-weight: 400;
@@ -155,10 +88,7 @@
   inset-block-start: 24px;
 }
 
-@supports (
-  (text-stroke: 1px var(--background-clr)) or
-    (-webkit-text-stroke: 1px var(--background-clr))
-) {
+@supports ((text-stroke: 1px var(--background-clr)) or (-webkit-text-stroke: 1px var(--background-clr))) {
   .card__image-text {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--background-clr);
@@ -195,7 +125,6 @@
   display: flex;
   gap: 4px;
   align-self: flex-end;
-  margin: 1.6px 0 0;
 }
 
 .card__icon-button {
@@ -203,7 +132,7 @@
   display: flex;
   align-items: center;
   border: none;
-  padding: var(--border-width);
+  padding: 1px 2px 0;
   outline: var(--border-width) solid transparent;
   outline-offset: var(--border-width);
   background-color: transparent;
@@ -213,7 +142,9 @@
   inline-size: 43px;
 
   .like-icon {
-    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     .core {
       fill: var(--core-clr-transparent);
@@ -227,6 +158,7 @@
 
     .contour {
       fill: var(--contour-clr);
+      transition: fill 0.1s linear;
     }
 
     .sparks {
@@ -238,18 +170,15 @@
     animation: icon-scaling 0.3s 0.1s ease-in reverse;
 
     .core {
-      animation: core-coloring 0.3s linear;
-      animation-fill-mode: forwards;
+      fill: var(--core-active-clr);
     }
 
     .main-body {
-      animation: main-body-coloring 0.3s 0.05s linear;
-      animation-fill-mode: forwards;
+      fill: var(--main-body-active-clr);
     }
 
     .contour {
-      animation: contour-coloring 0.3s 0.06s linear;
-      animation-fill-mode: forwards;
+      fill: var(--contour-active-clr);
     }
 
     .sparks {
@@ -316,7 +245,7 @@
 }
 
 .standard-button:focus-visible {
-  box-shadow: 2px 2px 0 2px var(--accent-clr);
+  box-shadow: 2px 2px 0 var(--accent-clr);
 }
 
 .standard-button::before {
@@ -360,8 +289,6 @@
   width: 100%;
   padding: 15px 0;
   text-align: center;
-  transition: box-shadow var(--transform-time);
-  transition-timing-function: var(--transition-function);
   cursor: pointer;
 }
 
@@ -372,16 +299,15 @@
 .footer__button-image {
   position: relative;
   z-index: 2;
+  width: 21px;
+  height: 21px;
   margin: 0 0 0 18px;
   color: var(--btn-text-clr);
-  block-size: 20px;
-  inline-size: auto;
   mix-blend-mode: difference;
 }
 
 .dialog {
   position: fixed;
-  overflow: hidden;
   inset: 0;
   border: var(--border-width) solid var(--accent-clr);
   padding: 32px 42px;
@@ -394,7 +320,6 @@
   background-color: var(--background-clr);
   transition: opacity 0.3s ease-in-out;
   max-inline-size: 353px;
-  max-block-size: 191px;
 }
 
 .dialog__form {
@@ -419,22 +344,12 @@
 
 .dialog__image {
   align-self: center;
-  inline-size: 39px;
-  block-size: 39px;
+  width: 39px;
+  height: 39px;
 }
 
 .dialog::backdrop {
   background-color: rgb(0 0 0 / 75%);
-}
-
-.visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  inline-size: 1px;
-  block-size: 1px;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
 
 .filter__bright {
@@ -468,29 +383,15 @@
 .filter__gray-bright {
   filter: brightness(80%) grayscale(0.8);
 }
-@media (width <= 375px) {
+
+@media (width <=375px) {
   .header {
-    outline: none;
-    border: 2px solid var(--accent-clr);
     margin-bottom: 100px;
+    outline: none;
   }
 
-  .cards:first-child .card__body {
-    padding: 25px 25px 25.4px;
-  }
-
-  .cards .card:not(:first-of-type) .card__body {
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
-
-  .cards .card:nth-of-type(2) .card__body,
-  .cards .card:nth-of-type(3) .card__body {
-    padding-bottom: 26px;
-  }
-
-  .cards .card:not(:first-of-type) .card__header {
-    padding-bottom: 4px;
+  .header__title {
+    margin-bottom: 120px;
   }
 
   .card__buttons {

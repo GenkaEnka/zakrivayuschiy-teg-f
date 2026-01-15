@@ -1,13 +1,3 @@
-@keyframes moving {
-  0% {
-    inset-inline-start: -20px;
-  }
-
-  100% {
-    inset-inline-start: -16px;
-  }
-}
-
 @keyframes core-coloring {
   100% {
     fill: var(--core-active-clr);
@@ -28,7 +18,7 @@
 
 @keyframes icon-scaling {
   100% {
-    transform: scale(1.5);
+    transform: scale(1.25);
     transform-origin: center;
   }
 }
