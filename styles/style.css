@@ -206,25 +206,23 @@
   }
 }
 
-.card__icon-button {
-  .like-icon.is-liked {
-    animation: icon-scaling 0.3s 0.1s ease-in;
+.card__icon-button .like-icon.is-liked {
+  animation: icon-scaling 0.3s 0.1s ease-in;
 
-    .core {
-      fill: var(--core-active-clr);
-    }
+  .core {
+    fill: var(--core-active-clr);
+  }
 
-    .main-body {
-      fill: var(--main-body-active-clr);
-    }
+  .main-body {
+    fill: var(--main-body-active-clr);
+  }
 
-    .contour {
-      fill: var(--contour-active-clr);
-    }
+  .contour {
+    fill: var(--contour-active-clr);
+  }
 
-    .sparks {
-      animation: sparks-coloring 0.3s 0.3s ease-in;
-    }
+  .sparks {
+    animation: sparks-coloring 0.3s 0.3s ease-in;
   }
 }
 
