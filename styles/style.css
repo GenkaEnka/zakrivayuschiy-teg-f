@@ -88,7 +88,10 @@
   inset-block-start: 24px;
 }
 
-@supports ((text-stroke: 1px var(--background-clr)) or (-webkit-text-stroke: 1px var(--background-clr))) {
+@supports (
+  (text-stroke: 1px var(--background-clr)) or
+    (-webkit-text-stroke: 1px var(--background-clr))
+) {
   .card__image-text {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--background-clr);
@@ -165,26 +168,6 @@
       fill: var(--sparks-fill-clr-transparent);
     }
   }
-
-  .like-icon.is-liked {
-    animation: icon-scaling 0.3s 0.1s ease-in reverse;
-
-    .core {
-      fill: var(--core-active-clr);
-    }
-
-    .main-body {
-      fill: var(--main-body-active-clr);
-    }
-
-    .contour {
-      fill: var(--contour-active-clr);
-    }
-
-    .sparks {
-      animation: sparks-coloring 0.3s 0.3s ease-in reverse;
-    }
-  }
 }
 
 .card__icon-button:focus {
@@ -219,6 +202,28 @@
     .main-body {
       fill: var(--main-body-active-clr);
       transition: fill 0.3s 0.05s linear;
+    }
+  }
+}
+
+.card__icon-button {
+  .like-icon.is-liked {
+    animation: icon-scaling 0.3s 0.1s ease-in;
+
+    .core {
+      fill: var(--core-active-clr);
+    }
+
+    .main-body {
+      fill: var(--main-body-active-clr);
+    }
+
+    .contour {
+      fill: var(--contour-active-clr);
+    }
+
+    .sparks {
+      animation: sparks-coloring 0.3s 0.3s ease-in;
     }
   }
 }
